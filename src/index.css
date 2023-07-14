@@ -30,14 +30,13 @@ body {
 .container {
   display: grid;
   grid-template-columns: 0.5fr 1fr 1fr 0.5fr;
-  grid-template-rows: 112px 1fr 1fr 0.4fr;
+  grid-template-rows: 112px 1fr 150px;
   background-color: #242424;
   height: 100vh;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
     "header header header header"
-    ". content content ."
     ". content content ."
     "footer footer footer footer";
 }
@@ -61,11 +60,11 @@ body {
   flex-flow: row wrap;
   justify-content: space-around;
   padding-top: 50px;
+  height: fit-content;
 }
 
 .footer {
   grid-area: footer;
-  position: fixed;
   bottom: 0;
   width: 100%;
   background-color: #181818;
@@ -202,6 +201,8 @@ a:hover {
 .cardimage {
   grid-area: cardimage;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .p-overflow-hidden {
@@ -284,6 +285,48 @@ a:hover {
   width: 100%;
 }
 
-.background-img {
+.modal {
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.modal > .header {
+  width: 100%;
+  border-bottom: 1px solid gray;
+  font-size: 18px;
+  text-align: center;
+  padding: 5px;
+}
 
+.modal > .content {
+  padding: 10px 5px;
+  background-color: #000;
+  opacity: 0.8;
+  width: 80%;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal > .actions {
+  width: 100%;
+  padding: 10px 5px;
+  margin: auto;
+  text-align: center;
+}
+.modal > .close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
 }

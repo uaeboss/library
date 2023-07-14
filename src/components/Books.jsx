@@ -37,9 +37,7 @@ function Books() {
         const description = entry.fields.description;
         const subtitle = entry.fields.subtitle;
         return (
-          
           <div key={key} className="card">
-            
             <div classname="cardtitle">
               <div className="flip-box">
                 <div className="flip-box-inner">
@@ -53,12 +51,29 @@ function Books() {
                     </div>
                     <div className="cardimage">
                       <p className="p-overflow-hidden">{description}</p>
+                      <Popup
+                        trigger={<button> weiterlesen ...</button>}
+                        modal
+                        nested
+                      >
+                        {(close) => (
+                          <div className="modal">
+                            <div className="content">
+                              {description}
+                            </div>
+                            <div>
+                              <button onClick={() => close()}>
+                                Close modal
+                              </button>
+                            </div>
+                          </div>
+                        )}
+                      </Popup>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
         );
       })}
