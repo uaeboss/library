@@ -36,6 +36,9 @@ function Books() {
         const title = entry.fields.title;
         const description = entry.fields.description;
         const subtitle = entry.fields.subtitle;
+        const author = entry.fields.author;
+        const genre = entry.fields.genre;
+        const isbn = entry.fields.isbn;
         return (
           <div key={key} className="card">
             <div classname="cardtitle">
@@ -52,20 +55,34 @@ function Books() {
                     <div className="cardimage">
                       <p className="p-overflow-hidden">{description}</p>
                       <Popup
-                        trigger={<button> weiterlesen ...</button>}
+                        trigger={<p className="openpopbut">mehr ...</p>}
                         modal
                         nested
                       >
                         {(close) => (
                           <div className="modal">
                             <div className="content">
-                              {description}
+                              <div className="popupinfo">
+                              
+                              <h3 className="h3-bigger">{title}</h3>
+                              <p className="subtitle">{subtitle}</p>
+                              <h3>Autor/in: {author}</h3>
+                              <h3>Genre: {genre}</h3>
+                              <h3>ISBN: {isbn}</h3>
+                              </div>
+                              <div className="popupimg"><img src={url} alt={title} height="280px" /></div>
+                              <div className="popupdescrp"><p>{description}</p></div>
+                              
+                               
+                                
+                              <div className="popupbutton">
+                                <button className="popup-closeBtn" onClick={() => close()}>
+                                X
+                              </button></div>
+                              
                             </div>
-                            <div>
-                              <button onClick={() => close()}>
-                                Close modal
-                              </button>
-                            </div>
+
+                            <div></div>
                           </div>
                         )}
                       </Popup>

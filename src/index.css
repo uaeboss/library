@@ -224,9 +224,9 @@ a:hover {
   background-color: #181818;
   padding: 20px;
   border-radius: 25px;
-  grid-template-areas: 
-  "genretitle"
-  "genredescription";
+  grid-template-areas:
+    "genretitle"
+    "genredescription";
 }
 
 .genretitle {
@@ -259,9 +259,9 @@ a:hover {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  grid-template-areas: 
-  "genretitle"
-  "genredescription";
+  grid-template-areas:
+    "genretitle"
+    "genredescription";
 }
 
 .authortitle {
@@ -302,13 +302,43 @@ a:hover {
 
 .modal > .content {
   padding: 10px 5px;
-  background-color: #000;
-  opacity: 0.8;
-  width: 80%;
-  height: 600px;
+  border-radius: 15px;
+  background-color: #fff;
+  color: #181818;
+  width: 35vw;
+  max-height: 600px;
+  display: grid;
+  grid-template-columns: 0.5fr 1.3fr 0.3fr 2.3fr 0.5fr;
+  grid-template-rows: 0.5fr 2.8fr 0.3fr 1.7fr 0.4fr 0.3fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    ". . . . ."
+    ". popupimg . popupinfo ."
+    ". . . . ."
+    ". popupdescrp popupdescrp popupdescrp ."
+    ". . . . ."
+    ". popupbutton popupbutton popupbutton .";
+}
+
+.popupimg {
+  grid-area: popupimg;
+}
+
+.popupinfo {
+  grid-area: popupinfo;
+}
+
+.popupdescrp {
+  grid-area: popupdescrp;
+  display: flex;
+  align-items: flex-start;
+}
+
+.popupbutton {
+  grid-area: popupbutton;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .modal > .actions {
@@ -329,4 +359,30 @@ a:hover {
   background: #ffffff;
   border-radius: 18px;
   border: 1px solid #cfcece;
+}
+
+.popup-overlay {
+  background-color: #242424;
+}
+
+.popup-closeBtn {
+  border: none;
+  background-color: transparent;
+  color: #181818;
+  font-size: 24px;
+}
+
+.popup-closeBtn:hover {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  transition: text-shadow 0.3s ease-in-out;
+}
+
+.openpopbut {
+  margin-top: 0;
+}
+.openpopbut:hover {
+  margin-top: 0;
+  cursor: pointer;
+  font-weight:bold;
+  font-size: 20px;
 }
