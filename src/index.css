@@ -1,0 +1,289 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: #181818;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 1fr 0.5fr;
+  grid-template-rows: 112px 1fr 1fr 0.4fr;
+  background-color: #242424;
+  height: 100vh;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "header header header header"
+    ". content content ."
+    ". content content ."
+    "footer footer footer footer";
+}
+
+.header {
+  grid-area: header;
+  background-color: #181818;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: 0px 5px 10px -5px #fff;
+  z-index: 1;
+}
+
+.content {
+  grid-area: content;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding-top: 50px;
+}
+
+.footer {
+  grid-area: footer;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #181818;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px -5px 10px -5px white;
+}
+
+.div-wide {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.card {
+  width: 350px;
+  border-radius: 25px;
+  margin-bottom: 15px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "cardimage"
+    "";
+}
+
+.cardtitle {
+  grid-area: cardtitle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardimage {
+  grid-area: cardimage;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+a:hover {
+  text-decoration: none;
+  color: rgb(49, 135, 210);
+}
+
+.h3-bigger {
+  font-size: 22px;
+  padding: 0;
+  margin: 0;
+  max-width: 200px;
+}
+
+.subtitle {
+  font-size: 16px;
+  margin-top: 0;
+}
+
+.nav-style {
+  width: 500px;
+}
+
+.ul-style {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.li-style {
+  font-size: 2em;
+}
+
+.flip-box {
+  background-color: transparent;
+  width: 300px;
+  height: 400px;
+  perspective: 1000px;
+}
+
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-box-front,
+.flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-box-front {
+  color: black;
+}
+
+.flip-box-back {
+  color: white;
+  transform: rotateY(180deg);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.4fr 1.4fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "cardtitle"
+    "cardimage";
+}
+
+.cardtitle {
+  grid-area: cardtitle;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardimage {
+  grid-area: cardimage;
+  padding: 20px;
+}
+
+.p-overflow-hidden {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 10;
+  line-clamp: 8;
+  overflow: hidden;
+  font-style: italic;
+}
+
+.genrecontainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.4fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  margin-bottom: 20px;
+  background-color: #181818;
+  padding: 20px;
+  border-radius: 25px;
+  grid-template-areas: 
+  "genretitle"
+  "genredescription";
+}
+
+.genretitle {
+  grid-area: genretitle;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.genredescription {
+  grid-area: genredescription;
+}
+
+.h3-genre {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.authorcontainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.4fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  margin-bottom: 20px;
+  background-color: #181818;
+  padding: 20px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  grid-template-areas: 
+  "genretitle"
+  "genredescription";
+}
+
+.authortitle {
+  grid-area: genretitle;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 25px;
+}
+
+.authordescription {
+  grid-area: genredescription;
+  display: flex;
+  align-items: flex-end;
+  font-style: italic;
+}
+
+.h3-author {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.background-img {
+
+}
