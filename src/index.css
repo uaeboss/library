@@ -206,6 +206,9 @@ a:hover {
   flex-direction: column;
 }
 
+.inner-card {
+  font-size: 14px;
+}
 .p-overflow-hidden {
   display: -webkit-box;
   -webkit-box-orient: vertical;
