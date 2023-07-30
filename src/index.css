@@ -181,6 +181,7 @@ a:hover {
 .flip-box-back {
   color: white;
   transform: rotateY(180deg);
+  background-color: #242424;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 0.4fr 1.4fr;
