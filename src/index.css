@@ -216,6 +216,8 @@ a:hover {
 
 .genrecontainer {
   display: grid;
+  width: 65%;
+  height: fit-content;
   grid-template-columns: 1fr;
   grid-template-rows: 0.4fr 1fr;
   gap: 0px 0px;
@@ -241,15 +243,16 @@ a:hover {
 }
 
 .h3-genre {
-  margin: 0;
+  margin: 0 0 10px 0;
   padding: 0;
   width: 100%;
 }
 
 .authorcontainer {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 0.4fr 1fr;
+  max-width: 1300px;
+  grid-template-columns: 0.6fr 1.4fr; 
+  grid-template-rows: 0.6fr 1.8fr 1fr; 
   gap: 0px 0px;
   grid-auto-flow: row;
   margin-bottom: 20px;
@@ -258,25 +261,38 @@ a:hover {
   border-radius: 25px;
   display: flex;
   justify-content: space-between;
-  flex-direction: column;
+  flex-direction: row;
   grid-template-areas:
-    "genretitle"
-    "genredescription";
+  "authorname authorname"
+  "authorimage authordescription"
+  ". authordescription"; 
 }
 
-.authortitle {
-  grid-area: genretitle;
+.authorname {
+  grid-area: authorname;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-bottom: 25px;
+  margin-bottom: 50px;
 }
 
 .authordescription {
-  grid-area: genredescription;
+  grid-area: authordescription;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   font-style: italic;
+  width: 78%;
+  padding-top: 30px;
+
+}
+
+.authorimage {
+  grid-area: authorimage;
+  max-width: 250px;
+}
+
+.img-block {
+  max-width: 230px;
 }
 
 .h3-author {
@@ -383,6 +399,6 @@ a:hover {
 .openpopbut:hover {
   margin-top: 0;
   cursor: pointer;
-  font-weight:bold;
+  font-weight: bold;
   font-size: 20px;
 }
