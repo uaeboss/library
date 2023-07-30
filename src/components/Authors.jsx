@@ -6,21 +6,13 @@ function Authors() {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  async function getAuthors() {
-    try {
-      const response = await client.getEntries({ content_type: "authors" });
-      const authors = response.items;
-      console.log(authors);
-      setAuthors(authors);
-      setIsLoading(false);
-    } catch (error) {
-      console.log(error);
-      setIsLoading(false);
-    }
-  }
-
   useEffect(() => {
-    getAuthors();
+    fetch("https://wbslibrarybackend.onrender.com/authors")
+      .then((res) => res.json())
+      .then((allAuthors) => {
+        setAuthors(allAuthors);
+        setIsLoading(false);
+      });
   }, []);
 
   if (isLoading) {
@@ -29,17 +21,18 @@ function Authors() {
 
   return (
     <>
-      {authors.map((entry) => {
-        const key = entry.sys.id;
-        const name = entry.fields.name;
-        const description = entry.fields.description;
+      {authors && 
+      authors.map((author) => {
         return (
-          <div key={key} className="authorcontainer">
-              <div class="authortitle">
-                <h3 className="h3-author">{name}</h3>
+          <div key={author.id} className="authorcontainer">
+            <div>
+              <div className="authortitle">
+                <h3 className="h3-genre">{author.first_name} {author.last_name}</h3>
               </div>
-              <div class="authordescription">
-                <div>{description}</div>
+              <img className="img-block" src={author.image_url} alt={author.last_name} />
+              </div>
+              <div className="authordescription">
+                {author.about}
               </div>
             </div>
         );
@@ -49,3 +42,4 @@ function Authors() {
 }
 
 export default Authors;
+
