@@ -64,7 +64,7 @@ function Books() {
                                   />
                                 </div>
                                 <div className="popupdescrp">
-                                  <p>{book.description}</p>
+                                  <p className="inner-card">{book.description}</p>
                                 </div>
 
                                 <div className="popupbutton">
