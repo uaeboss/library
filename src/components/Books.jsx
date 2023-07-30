@@ -4,7 +4,6 @@ import Popup from "reactjs-popup";
 
 function Books() {
   const [books, setBooks] = useState(null);
-  const [authors, setAuthors] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -16,7 +15,6 @@ function Books() {
         setIsLoading(false);
       });
   }, []);
-
 
   if (isLoading) {
     return <p>is Loading!</p>;
@@ -52,7 +50,7 @@ function Books() {
                                 <div className="popupinfo">
                                   <h3 className="h3-bigger">{book.title}</h3>
                                   <p className="subtitle">{book.subtitle}</p>
-                                  {/* <h3>Autor/in: {book.authors.first_name} {book.authors.last_name}</h3> */}
+                                  {/* <h3>Autor/in: {book.author}</h3> */}
                                   <h3>Genre: {book.genre}</h3>
                                   <h3>ISBN: {book.isbn}</h3>
                                 </div>

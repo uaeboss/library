@@ -6,13 +6,21 @@ function Genres() {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  async function getGenres() {
+    try {
+      const response = await client.getEntries({ content_type: "genres" });
+      const genres = response.items;
+      console.log(genres);
+      setGenres(genres);
+      setIsLoading(false);
+    } catch (error) {
+      console.log(error);
+      setIsLoading(false);
+    }
+  }
+
   useEffect(() => {
-    fetch("https://wbslibrarybackend.onrender.com/genres")
-      .then((res) => res.json())
-      .then((allGenres) => {
-        setGenres(allGenres);
-        setIsLoading(false);
-      });
+    getGenres();
   }, []);
 
   if (isLoading) {
@@ -21,15 +29,17 @@ function Genres() {
 
   return (
     <>
-      {genres && 
-      genres.map((genre) => {
+      {genres.map((entry) => {
+        const key = entry.sys.id;
+        const genre = entry.fields.genre;
+        const description = entry.fields.description;
         return (
-          <div key={genre.id} className="genrecontainer">
-              <div className="genretitle">
-                <h3 className="h3-genre">{genre.genre_name}</h3>
+          <div key={key} className="genrecontainer">
+              <div class="genretitle">
+                <h3 className="h3-genre">{genre}</h3>
               </div>
-              <div className="genredescription">
-                {genre.genre_description}
+              <div class="genredescription">
+                {description}
               </div>
             </div>
         );
