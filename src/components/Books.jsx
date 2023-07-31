@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-// import { client } from "../client";
 import Popup from "reactjs-popup";
 
 function Books() {
